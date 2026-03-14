@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 180 20% 99%;
+    --foreground: 200 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 50% 10%;
+
+    --primary: 175 70% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 40% 94%;
+    --secondary-foreground: 175 70% 30%;
+
+    --muted: 180 20% 96%;
+    --muted-foreground: 200 20% 45%;
+
+    --accent: 160 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 20% 90%;
+    --input: 180 20% 90%;
+    --ring: 175 70% 41%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(175 70% 41%) 0%, hsl(160 60% 45%) 50%, hsl(150 50% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(180 20% 99%) 0%, hsl(180 20% 97%) 100%);
+    --gradient-chat-bot: linear-gradient(135deg, hsl(175 70% 41%) 0%, hsl(160 60% 45%) 100%);
+    --gradient-chat-user: linear-gradient(135deg, hsl(200 50% 95%) 0%, hsl(180 20% 96%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(175 70% 41% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(200 50% 10% / 0.08);
+    --shadow-hover: 0 12px 40px -8px hsl(175 70% 41% / 0.2);
+    --shadow-glow: 0 0 40px hsl(175 70% 41% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 50% 6%;
+    --foreground: 180 20% 98%;
+
+    --card: 200 40% 10%;
+    --card-foreground: 180 20% 98%;
+
+    --popover: 200 40% 10%;
+    --popover-foreground: 180 20% 98%;
+
+    --primary: 175 70% 50%;
+    --primary-foreground: 200 50% 6%;
+
+    --secondary: 200 30% 15%;
+    --secondary-foreground: 175 70% 60%;
+
+    --muted: 200 30% 15%;
+    --muted-foreground: 180 15% 60%;
+
+    --accent: 160 60% 50%;
+    --accent-foreground: 200 50% 6%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 30% 18%;
+    --input: 200 30% 18%;
+    --ring: 175 70% 50%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(175 70% 35%) 0%, hsl(160 50% 30%) 50%, hsl(150 40% 25%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(200 40% 10%) 0%, hsl(200 40% 8%) 100%);
+    --gradient-chat-bot: linear-gradient(135deg, hsl(175 70% 40%) 0%, hsl(160 60% 35%) 100%);
+    --gradient-chat-user: linear-gradient(135deg, hsl(200 30% 18%) 0%, hsl(200 30% 15%) 100%);
+    
+    --shadow-soft: 0 4px 20px -4px hsl(175 70% 50% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 12px 40px -8px hsl(175 70% 50% / 0.15);
+    --shadow-glow: 0 0 40px hsl(175 70% 50% / 0.2);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-chat-bot {
+    background: var(--gradient-chat-bot);
+  }
+
+  .gradient-chat-user {
+    background: var(--gradient-chat-user);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.4s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s ease-out forwards;
+  }
+
+  .animate-bounce-soft {
+    animation: bounceSoft 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  .animate-typing {
+    animation: typing 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Page transition */
+.page-transition {
+  animation: pageEnter 0.4s ease-out;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Visiting Card Modal Animation */
+.visiting-card-modal {
+  position: relative;
+  animation: modalEnter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Animation - Initial State */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Scroll Animation - Visible State */
+.scroll-animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Emergency Button Pulse Animation */
+/* Doctor Avatar Floating Animation */
+@keyframes doctorFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.doctor-avatar-float {
+  animation: doctorFloat 3s ease-in-out infinite;
+}
+
+.doctor-avatar-float:hover {
+  animation-play-state: paused;
+}
+
+/* Doctor Status Ring Pulse Animation */
+@keyframes doctorStatusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.doctor-status-pulse {
+  animation: doctorStatusPulse 2s infinite;
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--destructive) / 0.7); }
+  50% { box-shadow: 0 0 0 12px hsl(var(--destructive) / 0); }
+}
+
+.animate-emergency-pulse {
+  animation: emergencyPulse 2s ease-in-out infinite;
+}
+
+/* Modal Scale Animation */
+.animate-modal-scale {
+  animation: modalEnter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Notification Badge Animation */
+.animate-notification-badge {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+/* Notification Dropdown Animation */
+.animate-notification-dropdown {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Filter Toggle Transition */
+.animate-filter-transition {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Skeleton Shimmer Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted-foreground) / 0.1) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --foreground: 0 0% 0%;
+  --background: 0 0% 100%;
+  --primary: 220 100% 50%;
+  --muted-foreground: 0 0% 20%;
+}
+
+.dark.high-contrast {
+  --foreground: 0 0% 100%;
+  --background: 0 0% 0%;
+  --primary: 175 100% 60%;
+  --muted-foreground: 0 0% 80%;
+}
+
+/* Focus Visible Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* ============================================
+   DOCTOR PRESENCE WAVE ANIMATIONS
+   ============================================ */
+
+/* Ripple Wave Animation */
+@keyframes rippleWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.ripple-wave {
+  animation: rippleWave 2s ease-out infinite;
+}
+
+.ripple-wave-1 { animation-delay: 0s; }
+.ripple-wave-2 { animation-delay: 0.5s; }
+.ripple-wave-3 { animation-delay: 1s; }
+
+/* ============================================
+   HEALTH TIP BUBBLE ANIMATIONS
+   ============================================ */
+
+@keyframes healthTipFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.health-tip-float {
+  animation: healthTipFloat 4s ease-in-out infinite;
+}
+
+.health-tip-minimized {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+/* Health Tip Text Fade */
+.health-tip-fade {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   HEARTBEAT INDICATOR ANIMATIONS
+   ============================================ */
+
+/* Normal Heartbeat (Available) */
+@keyframes heartbeatNormal {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Fast Heartbeat (Busy) */
+@keyframes heartbeatFast {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Flatline Fade */
+@keyframes flatlineFade {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.heartbeat-normal .heartbeat-path {
+  stroke-dasharray: 400;
+  animation: heartbeatNormal 2s linear infinite;
+}
+
+.heartbeat-fast .heartbeat-path {
+  stroke-dasharray: 400;
+  animation: heartbeatFast 1s linear infinite;
+}
+
+.heartbeat-flat .flatline-path {
+  animation: flatlineFade 2s ease-in-out infinite;
+}
+
+/* Heartbeat Scan Line */
+@keyframes heartbeatScan {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.heartbeat-scan {
+  animation: heartbeatScan 2s linear infinite;
+}
+
+.heartbeat-fast .heartbeat-scan {
+  animation: heartbeatScan 1s linear infinite;
+}
+
+/* ============================================
+   CONSULTATION METER ANIMATIONS
+   ============================================ */
+
+@keyframes consultationCompletePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.8));
+  }
+}
+
+.consultation-complete-pulse {
+  animation: consultationCompletePulse 1.5s ease-in-out infinite;
+}
